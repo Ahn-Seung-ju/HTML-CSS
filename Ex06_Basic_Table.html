@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>테이블 병합하기</title>
+	<style type="text/css">
+		table {
+			border-collapse: collapse;
+		}
+		td,th{border : 1px solid red;}
+	</style>
+</head>
+<body>
+<!-- 
+Use the HTML <table> element to define a table
+Use the HTML <tr> element to define a table row
+Use the HTML <td> element to define a table data
+Use the HTML <th> element to define a table heading
+Use the HTML <caption> element to define a table caption
+Use the CSS border property to define a border
+Use the CSS border-collapse property to collapse cell borders
+Use the CSS padding property to add padding to cells
+Use the CSS text-align property to align cell text
+Use the CSS border-spacing property to set the spacing between cells
+Use the colspan attribute to make a cell span many columns
+Use the rowspan attribute to make a cell span many rows
+Use the id attribute to uniquely define one table
+ -->
+<h3>일반테이블</h3>
+	<table>
+	<tr>
+		<td>글</td><td>제목</td><td>조회수</td>
+	</tr>
+	<tr>
+		<td>1</td><td>a</td><td>d</td>
+	</tr>
+	<tr>
+		<td>2</td><td>d</td><td>d</td>
+	</tr>
+	</table>
+	<hr>
+	<h3>고정테이블</h3>
+	<table style = "height: 200px ; width: 500px">
+	<tr>
+		<td>글</td><td>제목</td><td>조회수</td>
+	</tr>
+	<tr>
+		<td>1</td><td>a</td><td>d</td>
+	</tr>
+	<tr>
+		<td>2</td><td>d</td><td>d</td>
+	</tr>
+	</table>
+	<hr>
+	
+	<h3>일반테이블 병합</h3>
+	<table style = "height: 200px ; width: 500px">
+	<tr>
+		<td colspan = "2">글, 제목</td><td rowspan = "2">조회수</td>
+	</tr>
+	<tr>
+		<td>1</td><td>a</td>
+	</tr>
+	<tr>
+		<td colspan = "3">2,3,4</td>
+	</tr>
+	</table >
+	<hr>
+	<h3>일반테이블</h3>
+	<table style = "height: 200px ; width: 500px">
+	<tr>
+		<td colspan = "2" rowspan = "2">가,나,라,마</td><td>다</td>
+	</tr>
+	<tr>
+		<td>바</td>
+	</tr>
+	<tr>
+		<td>사</td><td>아</td><td>자</td>
+	</tr>
+	</table>
+	<hr>
+</body>
+</html>

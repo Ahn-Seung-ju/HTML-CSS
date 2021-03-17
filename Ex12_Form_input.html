@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 안에 input 태그</title>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+			<legend>Text: Password</legend>
+			Text: <input type = "text" name = "userid" id = "userid"><br>
+			Password:<input type = "password" name = "pwd" maxlength = "5"><br>
+			<hr>
+			Text: <input type = "text" name = "userid" id = "userid"
+					maxlength = "10" size = "100px" value = "기본값"><br>
+			<hr>
+			readonly(읽기 전용: 서버로 데이터 전송 가능)
+			<input type = "text" name = "userid" value = "홍" readonly	= "readonly"><br>
+			disabled(비활성화: 서버로 데이터 전송 불가능)
+			<input type = "text" name = "userid" value = "김" disabled	= "disabled"><br>
+		</fieldset>
+		<fieldset>
+			<legend>체크박스(다중선택)</legend>
+			농구: <input type = "checkbox" name = "sport_1" value = "A" checked="checked">
+			야구: <input type = "checkbox" name = "sport_2" value = "B">
+			축구: <input type = "checkbox" name = "sport_3" value = "C">
+		</fieldset>
+			<!-- 
+				get방식 서버 전송
+				register.jsp?sports_1=A&sport_2=b&sport_3=C (목적지 출발)
+				
+				register.jsp
+				String s = request.getParameter("sports_1")
+				String s = request.getParameter("sports_2")
+				String s = request.getParameter("sports_3")
+				
+				s변수에는 >> A >> 로직에 따라서
+				농구: <input type = "checkbox" name = "sport_1" value = "A" checked="checked">
+				야구: <input type = "checkbox" name = "sport_2" value = "B">
+				축구: <input type = "checkbox" name = "sport_3" value = "C">
+				
+
+				
+				농구: <input type = "checkbox" name = "sport" value = "A" checked="checked">
+				야구: <input type = "checkbox" name = "sport" value = "B">
+				축구: <input type = "checkbox" name = "sport" value = "C">
+				
+				
+					get방식 서버 전송
+					register.jsp?sport=A&sport=b&sport=C (목적지 출발)
+					
+					getParameterValues 내부에 >> String[] s = {"A", "B", "C"}
+					
+					register.jsp
+					String[] strarr = request.getParameterValues(name)
+					strarr[0] >> A
+					strarr[1] >> B
+					strarr[2] >> C
+			 -->
+			 <fieldset>
+			 	<legend>Select 태그(단일 선택 년, 월, 일)</legend>
+			 	<select name = "year">
+			 		<option value = "2021">2021년</option>
+			 		<option value = "2021" selected>2020년</option>
+			 		<option value = "2021">2019년</option>
+			 	</select>
+			 	<!-- 
+			 			resister.jsp?year=2020 //웹을 통해서 서버로 가는 데이터는 문자열
+			 			
+			 			resister.jsp
+			 			
+			 			String year = request.getParameter("year");
+			 			int year = Interger.parseInt(request.getParameter("year"));
+			 	 -->
+			 </fieldset>
+			 <hr>
+			 <fieldset>
+			 	<legend>Select 태그(다중선택)(재미삼아)</legend>
+			 	<select name = "year" multiple>
+			 		<option value = "2021">2021년</option>
+			 		<option value = "2021" selected>2020년</option>
+			 		<option value = "2021">2019년</option>
+			 	</select>
+			 	<!-- 
+			 			resister.jsp?year=2019&year=2020&year=2021
+			 			checkbox 다중선택 원리와 동일 (배열)
+			 	 -->
+			 </fieldset>
+			 <fieldset>
+			 	<legend>라디오 버튼(단일선택: 남,여 선택): name속성이 같으면 하나의 그룹으로 잡힘</legend>
+			 		여<input type="radio" name = "gender" value = "1"><br>
+			 		남<input type="radio" name = "gender" value = "2"checked><br>
+			 		<hr>
+			 		대<input type="radio" name = "product" value = "1"><br>
+			 		중<input type="radio" name = "product" value = "2" checked><br>
+			 		소<input type="radio" name = "product" value = "3"><br>
+			 </fieldset>
+			 <fieldset>
+			 	<legend>기타 등등</legend>
+			 	1. 화면에 출력이 안된다(소스는 있다)
+			 	<input type = "hidden" value = "1000" name= "data">
+			 	<hr>
+			 	2. 파일 업로드(클라이언트 파일 선택 가능)
+			 	<input type = "file" name = "imgupload">
+			 	<hr>
+			 	3. 게시판 글쓰기(여러줄): 초기 화면의 크기(rows, cols 몇줄에 몇칸을 초기에 보여준다)
+			 	<textarea rows="10" cols="100"></textarea>
+			 	<hr>
+			 	4. 각종 버튼 기능들
+			 	<input type = "button" value = "누르시오" onclick="alert('쉬는 시간')"><br>
+			 	<!-- 
+			 		type = "image" 내부적으로 submit
+			 		type = "submit" 진짜로 submit
+			 		type = "reset"
+			 	 -->
+			 </fieldset>
+	</form>
+</body>
+</html>
